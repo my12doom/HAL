@@ -14,6 +14,12 @@ namespace HAL
 		// return num channel written
 		// generate an error if index overrun/underrun, and won't update any channel
 		// return negative value to indicate an error
-		virtual int write(int16_t *out, int start_channel, int max_count) = 0;
+		virtual int write(const int16_t *data, int start_channel, int count) = 0;
+	
+		// return num channel read
+		// return any possible read if index overrun
+		// return negative value to indicate an error
+		virtual int read(int16_t *out, int start_channel, int max_count) = 0;
+
 	};
 }
